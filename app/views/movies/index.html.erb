@@ -1,0 +1,15 @@
+<h1> Movies! </h1>
+
+<%= form_tag "/", method: "GET" do %>
+<%= text_field_tag :q, params[:q] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<p> </p>
+<% @movies.each do |movie| %>
+  <section>
+    <header> <strong> <%= movie.title %> </strong> - <%= movie.year %> - <%= movie.director %> </header> 
+    <%= link_to "Details", movie_path(movie.id) %> 
+    <p> </p>
+  </section>
+<% end %>
